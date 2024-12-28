@@ -6,17 +6,9 @@ import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"; 
+import { Author, Content } from "../App";
 
-interface Author {
-  name: string;
-  avatarUrl: string;
-  role: string;
-}
 
-interface Content {
-  type: "paragraph" | "link";
-  content: string;
-}
 
 interface PostProps {
   author: Author;

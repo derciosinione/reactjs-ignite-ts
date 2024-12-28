@@ -5,12 +5,32 @@ import { Sidebar } from "./components/Sidebar";
 import { Post } from "./components/Post";
 import { Header } from "./components/Header";
 
-const posts = [
+
+export interface Author {
+  name: string;
+  avatarUrl: string;
+  role: string;
+}
+
+export interface Content {
+  type: "paragraph" | "link";
+  content: string;
+}
+
+interface Post {
+  id: number;
+  author: Author;
+  content: Content[];
+  publishedAt: Date;
+}
+
+
+const posts: Post[] = [
   {
     id: 1,
     author: {
       name: "Dercio Derone",
-      avatar: "https://github.com/derciosinione.png",
+      avatarUrl: "https://github.com/derciosinione.png",
       role: "Software Developer",
     },
     content: [
@@ -31,7 +51,7 @@ const posts = [
     id: 2,
     author: {
       name: "Paulo Lopes",
-      avatar: "https://github.com/Paulo-Lopes-Estevao.png",
+      avatarUrl: "https://github.com/Paulo-Lopes-Estevao.png",
       role: "Back Developer",
     },
     content: [
@@ -46,7 +66,7 @@ const posts = [
     ],
     publishedAt: new Date("2024-12-24 01:22:30"),
   },
-];
+] ;
 
 export function App() {
   return (
