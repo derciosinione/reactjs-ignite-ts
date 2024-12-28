@@ -6,29 +6,29 @@ import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"; 
-import { Author, Content } from "../App";
+import { AuthorType, ContentType } from "../App";
 
 
 
 interface PostProps {
-  author: Author;
+  author: AuthorType;
   publishedAt: Date;
-  contents: Content[];
+  contents: ContentType[];
 }
 
-export function Post({ author, contents, publishedAt }: PostProps) {
+export function Post( post : PostProps) {
 
   const [comments, setComment] = useState<string[]>([]);
 
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDataFormat = format(
-    publishedAt,
+    post.publishedAt,
     "dd 'de' MMMM 'as' HH:mm'h'",
     { locale: ptBR }
   );
 
-  const publishedDateRelativeNow = formatDistanceToNow(publishedAt, {
+  const publishedDateRelativeNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBR,
     addSuffix: true,
   });
@@ -63,27 +63,27 @@ export function Post({ author, contents, publishedAt }: PostProps) {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={author.avatarUrl} />
+          <Avatar src={post.author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{post.author.name}</strong>
+            <span>{post.author.role}</span>
           </div>
         </div>
 
-        <time title={publishedDataFormat} dateTime={publishedAt.toISOString()}>
+        <time title={publishedDataFormat} dateTime={post.publishedAt.toISOString()}>
           {publishedDateRelativeNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        {contents
+        {post.contents
           .filter((content) => content.type === "paragraph")
           .map((content, index) => (
             <p key={index}>{content.content}</p>
           ))}
 
         <p>
-          {contents
+          {post.contents
             .filter((content) => content.type === "link")
             .map((content, index) => (
               <a key={index} href="#" style={{ marginRight: "8px" }}>

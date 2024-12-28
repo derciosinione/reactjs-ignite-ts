@@ -6,26 +6,26 @@ import { Post } from "./components/Post";
 import { Header } from "./components/Header";
 
 
-export interface Author {
+export interface AuthorType {
   name: string;
   avatarUrl: string;
   role: string;
 }
 
-export interface Content {
+export interface ContentType {
   type: "paragraph" | "link";
   content: string;
 }
 
-interface Post {
+interface PostType {
   id: number;
-  author: Author;
-  content: Content[];
+  author: AuthorType;
+  content: ContentType[];
   publishedAt: Date;
 }
 
 
-const posts: Post[] = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
