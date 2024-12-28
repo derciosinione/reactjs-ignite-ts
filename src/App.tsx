@@ -4,25 +4,7 @@ import styles from "./App.module.css";
 import { Sidebar } from "./components/Sidebar";
 import { Post } from "./components/Post";
 import { Header } from "./components/Header";
-
-
-export interface AuthorType {
-  name: string;
-  avatarUrl: string;
-  role: string;
-}
-
-export interface ContentType {
-  type: "paragraph" | "link";
-  content: string;
-}
-
-export interface PostType {
-  id: number;
-  author: AuthorType;
-  contents: ContentType[];
-  publishedAt: Date;
-}
+import { PostType } from "./types/postType";
 
 
 const posts: PostType[] = [
