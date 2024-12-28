@@ -6,17 +6,10 @@ import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"; 
-import { AuthorType, ContentType } from "../App";
+import { PostType } from "../App";
 
 
-
-interface PostProps {
-  author: AuthorType;
-  publishedAt: Date;
-  contents: ContentType[];
-}
-
-export function Post( post : PostProps) {
+export function Post( post : PostType) {
 
   const [comments, setComment] = useState<string[]>([]);
 

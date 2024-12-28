@@ -17,10 +17,10 @@ export interface ContentType {
   content: string;
 }
 
-interface PostType {
+export interface PostType {
   id: number;
   author: AuthorType;
-  content: ContentType[];
+  contents: ContentType[];
   publishedAt: Date;
 }
 
@@ -33,7 +33,7 @@ const posts: PostType[] = [
       avatarUrl: "https://github.com/derciosinione.png",
       role: "Software Developer",
     },
-    content: [
+    contents: [
       { type: "paragraph", content: "Fala galeraa 👋" },
       {
         type: "paragraph",
@@ -54,7 +54,7 @@ const posts: PostType[] = [
       avatarUrl: "https://github.com/Paulo-Lopes-Estevao.png",
       role: "Back Developer",
     },
-    content: [
+    contents: [
       { type: "paragraph", content: "Boa noite galeraa 👋" },
       {
         type: "paragraph",
@@ -80,9 +80,7 @@ export function App() {
             return (
               <Post
                 key={post.id}
-                author={post.author}
-                contents={post.content}
-                publishedAt={post.publishedAt}
+                {...post}
               />
             );
           })}
