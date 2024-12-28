@@ -6,7 +6,7 @@ import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"; 
-import { PostType } from "../App";
+import { PostType } from "../types/postType";
 
 
 export function Post( post : PostType) {
