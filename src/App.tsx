@@ -4,51 +4,7 @@ import styles from "./App.module.css";
 import { Sidebar } from "./components/Sidebar";
 import { Post } from "./components/Post";
 import { Header } from "./components/Header";
-import { PostType } from "./types/postType";
-
-
-const posts: PostType[] = [
-  {
-    id: 1,
-    author: {
-      name: "Dercio Derone",
-      avatarUrl: "https://github.com/derciosinione.png",
-      role: "Software Developer",
-    },
-    contents: [
-      { type: "paragraph", content: "Fala galeraa 👋" },
-      {
-        type: "paragraph",
-        content:
-          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
-      },
-      { type: "link", content: "jane.design/doctorcare" },
-      { type: "link", content: "#novoprojeto" },
-      { type: "link", content: "#nlw" },
-      { type: "link", content: "#rocketseat" },
-    ],
-    publishedAt: new Date("2024-12-23 01:22:30"),
-  },
-  {
-    id: 2,
-    author: {
-      name: "Paulo Lopes",
-      avatarUrl: "https://github.com/Paulo-Lopes-Estevao.png",
-      role: "Back Developer",
-    },
-    contents: [
-      { type: "paragraph", content: "Boa noite galeraa 👋" },
-      {
-        type: "paragraph",
-        content:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 🚀",
-      },
-      { type: "link", content: "jane.design/doctorcare" },
-      { type: "link", content: "#nlw" },
-    ],
-    publishedAt: new Date("2024-12-24 01:22:30"),
-  },
-] ;
+import { posts } from "./data";
 
 export function App() {
   return (
